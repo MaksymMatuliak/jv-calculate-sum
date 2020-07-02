@@ -11,7 +11,10 @@ public class FirstThread implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        Integer sum = randomNumberList.getNumbers().stream().reduce(0, Integer::sum);
+        Integer sum = randomNumberList.getNumbers()
+                .stream()
+                .limit(randomNumberList.getNumbers().size() / 2 + 1)
+                .reduce(0, Integer::sum);
         System.out.println("FirstThread finished work and result is: " + sum);
         return sum;
     }

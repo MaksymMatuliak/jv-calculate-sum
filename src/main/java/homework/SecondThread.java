@@ -11,7 +11,10 @@ public class SecondThread implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        Integer sum = randomNumberList.getNumbers().stream().reduce(0, Integer::sum);
+        Integer sum = randomNumberList.getNumbers()
+                .stream()
+                .skip(randomNumberList.getNumbers().size() / 2)
+                .reduce(0, Integer::sum);
         System.out.println("SecondThread finished work and result is: " + sum);
         return sum;
     }
