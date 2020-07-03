@@ -23,7 +23,7 @@ public class Main {
                 executorService.invokeAll(List.of(threadCounter, secondThread));
         System.out.println("Sum is " + (futuresFromExecurotService.get(0).get()
                 + futuresFromExecurotService.get(1).get()));
-        System.out.println("----------------------------------------------------------");
+        System.out.println("---------------------------------------------------------");
         ForkJoinPool forkJoinPool = new ForkJoinPool(numbersOfTreads);
         List<Future<Integer>> futuresFromForkJoin =
                 forkJoinPool.invokeAll(List.of(threadCounter, secondThread));
