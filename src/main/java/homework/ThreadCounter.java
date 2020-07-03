@@ -17,7 +17,7 @@ public class ThreadCounter implements Callable<Integer> {
     public Integer call() {
         Integer sum = randomNumberList.getNumbers()
                 .stream()
-                .skip((partOfList - 1) * (randomNumberList.getNumbers().size() / amountOfThread))
+                .skip((partOfList - 1) * ((randomNumberList.getNumbers().size() / amountOfThread) + 1))
                 .limit(randomNumberList.getNumbers().size() / amountOfThread + 1)
                 .reduce(0, Integer::sum);
         System.out.println("ThreadCounter finished work and result is: " + sum);
